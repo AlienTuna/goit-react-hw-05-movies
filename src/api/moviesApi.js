@@ -22,16 +22,16 @@ export async function getSearch(query) {
     return res.data;
 }
 
-export async function getDetails(id) {
+export async function getMovie(id) {
     const res = await api.get(`movie/${id}`);
     return res.data;
 }
 
-export async function getCast(id) {
-    const res = await axios.get(`${URL}movie/${id}/credits?api_key=${KEY}`);
+export async function getMovieCredits(id) {
+    const res = await api.get(`movie/${id}/credits`);
     return res.data;
 }
-export async function getReviews(id) {
-    const res = await axios.get(`${URL}movie/${id}/reviews?api_key=${KEY}`);
+export async function getMovieReviews(id) {
+    const res = await api.get(`movie/${id}/reviews`);
     return res.data;
 }
