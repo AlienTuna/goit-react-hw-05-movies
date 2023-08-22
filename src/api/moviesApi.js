@@ -5,6 +5,7 @@ const baseURL = 'https://api.themoviedb.org/3/';
 
 const api = axios.create({
     baseURL,
+    method: 'POST',
     params: {
         // api_key,
         language: 'en-US',
@@ -14,7 +15,7 @@ const api = axios.create({
 
 export async function getTrending() {
     const res = await api.get(`trending/movie/day`);
-    return res.data;
+    return res.data.results;
 }
 
 export async function getSearch(query) {
