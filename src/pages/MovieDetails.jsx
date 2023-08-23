@@ -12,7 +12,7 @@ const MovieDetails = () => {
             Movie id = {movieId}
             <ul>
                 <li>
-                    <NavLink>Cast</NavLink>
+                    <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
                 </li>
                 <li>
                     <NavLink>Feedback</NavLink>
