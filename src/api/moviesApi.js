@@ -19,7 +19,7 @@ export async function getTrending() {
 }
 
 export async function getSearch(query) {
-    const res = await api.get(`search/movie`, {params: {query}});
+    const res = await api.get(`search/movie`, { params: { query } });
     return res.data;
 }
 

@@ -1,0 +1,13 @@
+.reviewContainer {
+    background-color: rgba(8, 8, 8, 0.479);
+    /* border: 20px solid rgba(1, 45, 48, 0.021); */
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.reviewTxt {
+    color: rgb(172, 162, 147);
+    /* font-size: 16px; */
+    line-height: 1.4;
+}

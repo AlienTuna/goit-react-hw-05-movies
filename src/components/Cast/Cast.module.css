@@ -1,0 +1,30 @@
+.castContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.castCard {
+    /* display: flex; */
+    width:200px;
+    height: 350px;
+    overflow: hidden;
+    background-color: #00000034;
+    border-radius: 10px;
+}
+.imgContainer {
+    height: 70%;
+    overflow: hidden;
+    text-align: center;
+}
+.img {
+    border-radius: 6px;
+}
+.infoContainer {
+    padding: 10px;
+    text-align: center;
+}
+.name {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
