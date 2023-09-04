@@ -1,15 +1,54 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { getSearch } from "api/moviesApi";
+
+import SearchBar from "components/SearchBar/SearchBar";
+import { useEffect, useState } from "react";
 
 const Movies = () => {
-    const moviesList = [{ id: 1, nam: 'mov1' }, { id: 2, nam: 'mov2' }, { id: 3, nam: 'mov3' }]
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('searchQuery')
+
+    function inputParams(query) {
+        if (query) {
+            setSearchParams({ searchQuery: query });
+        }
+    }
+
+    const [searchedMovies, setSearchedMovies] = useState(null);
+
+    useEffect(() => {
+        async function getSearchMovies(q) {
+            try {
+                const res = await getSearch(q);
+                const info = res.results.map(item => {
+                    return {
+                        id: item.id,
+                        title: item.title,
+                        img: item.poster_path,
+                        year: item.release_date.slice(0, 4),
+                    }
+                })
+
+                setSearchedMovies(info);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        getSearchMovies(query);
+    }, [query])
     return (
         <div>
-            <h2>Movies page</h2>
-            {moviesList.map(movie =>
+            <SearchBar
+                txt={query}
+                onSearch={inputParams}
+            />
+            {searchedMovies && searchedMovies.map(movie =>
                 <Link
                     key={movie.id}
-                    to={`${movie.id}`}>
-                    movie - {movie.nam}
+                    to={`${movie.id}`}
+                >
+                    {movie.title}
                 </Link>)}
         </div>
     )

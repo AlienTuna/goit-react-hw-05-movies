@@ -1,37 +1,35 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 // import { ImSearch } from 'react-icons/im';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
-import css from './Searchbar.module.css';
+import { useState } from 'react';
+import css from './SearchBar.module.css';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const SearchBar = ({onSubmit}) => {
-    const [txt, setTxt] = useState('')
+const SearchBar = ({ txt, onSearch }) => {
+    const [inputTxt, setInputTxt] = useState('txt');
 
-    const handleInputChange = e => {
-        setTxt(e.currentTarget.value)
-    }
-    const handleSubmit = e => {
+    function handleSubmit(e) {
         e.preventDefault();
-        const text = txt.trim();
-        if (!text || text === '') {
-            toast.warn('Insert some text please')
-            return
-        }
 
-        onSubmit(txt)
+        // const txt = e.target[0].value.trim();
+        if(inputTxt && inputTxt !== '') {
+            onSearch(inputTxt);
+        }
+    }
+
+    function handleInput(e) {
+        setInputTxt(e.currentTarget.value);
+        console.log(e.currentTarget.value)
     }
 
     return (
         <header className={css["SearchForm-container"]}>
             <form
-                onSubmit={handleSubmit}
-                className={css.SearchForm}>
-                <button type="submit" className={css["SearchForm-button"]}>
-                    <span class="button-label">Search</span>
-                    {/* <ImSearch className={css["SearchForm-button-label"]} /> */}
-                </button>
+                name='searchQuery'
+                className={css.SearchForm}
+                onSubmit={handleSubmit}>
 
                 <input
                     className={css["SearchForm-input"]}
@@ -40,14 +38,19 @@ const SearchBar = ({onSubmit}) => {
                     autoFocus
                     placeholder="Search movies"
                     value={txt}
-                    onChange={handleInputChange}
+                    onInput={handleInput}
                 />
+                
+                <button type="submit" className={css["SearchForm-button"]}>
+                    <span className={css["SearchForm-button-label"]}>Search</span>
+                    {/* <ImSearch className={css["SearchForm-button-label"]} /> */}
+                </button>
             </form>
         </header>
     )
 }
 export default SearchBar;
 
-Searchbar.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-}
+// SearchBar.propTypes = {
+//     onSubmit: PropTypes.func.isRequired,
+// }
