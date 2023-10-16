@@ -1,11 +1,5 @@
-// import { useState } from 'react';
-// import { ImSearch } from 'react-icons/im';
-// import { toast } from 'react-toastify';
-
 import { useState } from 'react';
 import css from './SearchBar.module.css';
-
-// import PropTypes from 'prop-types';
 
 const SearchBar = ({ txt, onSearch }) => {
     const [inputTxt, setInputTxt] = useState(txt);
@@ -50,7 +44,3 @@ const SearchBar = ({ txt, onSearch }) => {
     )
 }
 export default SearchBar;
-
-// SearchBar.propTypes = {
-//     onSubmit: PropTypes.func.isRequired,
-// }

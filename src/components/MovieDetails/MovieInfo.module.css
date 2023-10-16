@@ -1,0 +1,13 @@
+.linkBack {
+    width:fit-content;
+    padding: 6px;
+    margin: 0 0 20px 0;
+    border: solid 1px var(--txt-main-color);
+    border-radius: 5px;
+}
+
+.movieCard {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
