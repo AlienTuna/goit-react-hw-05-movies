@@ -8,7 +8,7 @@ import css from './SearchBar.module.css';
 // import PropTypes from 'prop-types';
 
 const SearchBar = ({ txt, onSearch }) => {
-    const [inputTxt, setInputTxt] = useState('txt');
+    const [inputTxt, setInputTxt] = useState(txt);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -21,7 +21,7 @@ const SearchBar = ({ txt, onSearch }) => {
 
     function handleInput(e) {
         setInputTxt(e.currentTarget.value);
-        console.log(e.currentTarget.value)
+        // console.log(e.currentTarget.value)
     }
 
     return (
@@ -37,7 +37,7 @@ const SearchBar = ({ txt, onSearch }) => {
                     autoComplete="off"
                     autoFocus
                     placeholder="Search movies"
-                    value={txt}
+                    value={inputTxt}
                     onInput={handleInput}
                 />
                 

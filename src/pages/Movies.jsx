@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get('searchQuery')
-
+//
     function inputParams(query) {
         if (query) {
             setSearchParams({ searchQuery: query });
@@ -19,6 +19,7 @@ const Movies = () => {
     useEffect(() => {
         async function getSearchMovies(q) {
             try {
+                console.info('!!!!!!REQUEST!!!!!!')
                 const res = await getSearch(q);
                 const info = res.results.map(item => {
                     return {
@@ -31,7 +32,7 @@ const Movies = () => {
 
                 setSearchedMovies(info);
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
 
@@ -43,13 +44,20 @@ const Movies = () => {
                 txt={query}
                 onSearch={inputParams}
             />
-            {searchedMovies && searchedMovies.map(movie =>
-                <Link
-                    key={movie.id}
-                    to={`${movie.id}`}
-                >
-                    {movie.title}
-                </Link>)}
+            {searchedMovies &&
+                <ul>
+                    {searchedMovies.map(movie =>
+                        <li>
+                            <Link
+                                key={movie.id}
+                                to={`${movie.id}`}
+                            >
+                                {movie.title}
+                            </Link>
+                        </li>
+                    )
+                    }
+                </ul>}
         </div>
     )
 }

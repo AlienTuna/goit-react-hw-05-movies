@@ -27,7 +27,7 @@ const MovieDetails = () => {
                 setDetails(info)
                 return res;
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
         getMovieDetails(movieId)

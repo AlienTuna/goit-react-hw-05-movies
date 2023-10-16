@@ -23,7 +23,7 @@ const Reviews = () => {
                 })
                 setReviews(info);
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
         getReviews(movieId);
