@@ -15,10 +15,8 @@ const Home = () => {
     const [st, setSt] = useState(IDLE)
     const [moviesList, setMoviesList] = useState(null)
     useEffect(() => {
-        console.info('!!!!!!use effect!!!!!!');
         async function getTrendingList() {
             try {
-                console.info('!!!!!!getTRADING REqUEST!!!!!!');
                 setSt(LOADING);
 
                 const res = await getTrending();
@@ -30,7 +28,6 @@ const Home = () => {
                 console.error(error);
             }
         }
-        console.info('!!!!!!getTRADING!!!!!!');
         getTrendingList();
     }, [])
     return (

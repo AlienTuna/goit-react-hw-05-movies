@@ -1,10 +1,13 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+
+/* bring in normalize.css styles */
 :root {
   --bg-main-color: #023449;
   --txt-main-color: #c7b75b;
   --txt-bright-color: #fff5bc;
   --dark-yellow-color: rgba(107, 99, 55, 0.24);
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,7 +25,10 @@ code {
     monospace;
 }
 
-a, ul, li, p {
+a,
+ul,
+li,
+p {
   text-decoration: none;
   color: inherit;
   list-style: none;
@@ -39,24 +45,33 @@ a:focus {
 
 
 .navigation {
-  margin: 20px 0 50px 20px;  
+  margin: 20px 0 50px 20px;
   font-weight: 700;
 }
-.navigation > a {
+
+.navigation>a {
   padding: 20px;
   transition: all .5s;
   font-size: 18px;
-  color: var(--txt-main-color);  
+  color: var(--txt-main-color);
   font-style: bold;
   border-bottom: solid 2px var(--bg-main-color);
 }
 
-.navigation > a.active {
+.navigation>a.active {
   color: var(--txt-main-color);
   border-bottom: solid 2px var(--txt-main-color);
-} 
-.navigation > a:hover,
-.navigation > a:focus {
+}
+
+.navigation>a:hover,
+.navigation>a:focus {
   color: var(--txt-bright-color);
   border-bottom: solid 2px var(--txt-bright-color);
 }
+
+/* .subnavigation,
+.subnavigation:hover,
+.subnavigation:focus,
+.subnavigation.active {
+  margin-bottom: 22px;
+} */

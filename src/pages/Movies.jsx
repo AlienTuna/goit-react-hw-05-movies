@@ -25,7 +25,6 @@ const Movies = () => {
 
         async function getSearchMovies(q) {
             try {
-                console.info('!!!!!!REQUEST!!!!!!')
                 const res = await getSearch(q);
                 const info = res.results.map(item => {
                     return {

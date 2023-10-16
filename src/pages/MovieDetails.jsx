@@ -39,15 +39,10 @@ const MovieDetails = () => {
                 <MovieInfo data={details} />
             }
             <hr/>
-            <ul>
-                <li>
-                    <NavLink to={`cast`}>Cast</NavLink>
-                </li>
-                <li>
-                    <NavLink to={`reviews`}>Reviews</NavLink>
-                </li>
+            <ul className="navigation subnavigation">
+                <NavLink to={`cast`}>Cast</NavLink>
+                <NavLink to={`reviews`}>Reviews</NavLink>
             </ul>
-            <hr/>
             <Outlet />
         </div>
     )
